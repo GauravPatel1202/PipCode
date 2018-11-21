@@ -1,0 +1,27 @@
+
+<div>
+<input [(ngModel)]="searchText" placeholder="search text goes here"/>
+<div class="container">
+<table>
+  
+</table>
+<table>
+	<thead>
+  	<th colspan="4">Students​ ​Result​ ​Board</th>
+  </thead>
+  <tr>
+    <th>Student​ ​Name</th>
+    <th>Roll​ ​Number</th>
+    <th>Total​ ​Marks</th>
+    <th>Status</th>
+  </tr>
+  <tr *ngFor="let data of table  | filter : searchText" [ngClass]="{'Topper': TopperMark==data.totelMarks&&data.Status!='Fail', 'Fail': TopperMark!=data.totelMarks&&data.Status=='Fail', 'Pass': TopperMark!=data.totelMarks&&data.Status=='Pass'}" >
+    <td class="name">{{data.name}}</td>
+    <td>{{data.rollNumber}}</td>
+    <td>{{data.totelMarks}}</td>
+    <td>{{TopperMark!=data.totelMarks?data.Status:"Topper"}}</td>
+  </tr>
+</table>
+</div>
+</div>
+
